@@ -24,5 +24,6 @@ public class SnapEditor : MonoBehaviour
         transform.position = snapPos;
 
         coordLabel.text = snapPos.x / gridSize + "," + snapPos.z / gridSize;
+        name = coordLabel.text;
     }
 }
