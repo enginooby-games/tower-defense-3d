@@ -4,11 +4,10 @@ using UnityEngine;
 
 [ExecuteInEditMode]
 [SelectionBase]
+[RequireComponent(typeof(Waypoint))]
 public class SnapEditor : MonoBehaviour
 {
-    [SerializeField] [Range(1f, 20f)] int gridSize = 10;
     [SerializeField] TextMesh coordLabel;
-
     Vector3 snapPos;
     // Start is called before the first frame update
     void Start()
@@ -19,11 +18,18 @@ public class SnapEditor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        snapPos.x = Mathf.RoundToInt(transform.position.x / gridSize) * gridSize;
-        snapPos.z = Mathf.RoundToInt(transform.position.z / gridSize) * gridSize;
-        transform.position = snapPos;
+        SnapToGrid();
+        UpdateLabel();
+    }
 
-        coordLabel.text = snapPos.x / gridSize + "," + snapPos.z / gridSize;
+    private void SnapToGrid(){
+        snapPos.x = Mathf.RoundToInt(transform.position.x / GameConst.GRID_SIZE) * GameConst.GRID_SIZE;
+        snapPos.z = Mathf.RoundToInt(transform.position.z / GameConst.GRID_SIZE) * GameConst.GRID_SIZE;
+        transform.position = snapPos;
+    }
+
+    private void UpdateLabel(){
+        coordLabel.text = snapPos.x / GameConst.GRID_SIZE + "," + snapPos.z / GameConst.GRID_SIZE;
         name = coordLabel.text;
     }
 }
