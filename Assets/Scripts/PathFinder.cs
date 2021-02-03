@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class PathFinder : MonoBehaviour
 {
+    [SerializeField] Waypoint startWaypoint, endWaypoint;
     Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
+    Vector2Int[] directions = { Vector2Int.up, Vector2Int.down, Vector2Int.left, Vector2Int.right };
     // Start is called before the first frame update
     void Start()
     {
         LoadBlocks();
+        startWaypoint.SetColor(Color.black);
+        endWaypoint.SetColor(Color.magenta);
+        ExploreNeighbours(startWaypoint);
     }
 
     // Update is called once per frame
@@ -34,5 +39,20 @@ public class PathFinder : MonoBehaviour
         }
 
         print(grid.Count + " blocks loaded");
+    }
+
+    private void ExploreNeighbours(Waypoint waypoint)
+    {
+        foreach (Vector2Int direction in directions)
+        {
+            Vector2Int neighbourCoord = waypoint.GetCoord() + direction;
+            try
+            {
+                grid[neighbourCoord].SetColor(Color.gray);
+            }
+            catch (System.Exception)
+            {
+            }
+        }
     }
 }
