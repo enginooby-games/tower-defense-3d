@@ -211,6 +211,7 @@ GameObject:
   m_Component:
   - component: {fileID: 63779959}
   - component: {fileID: 63779958}
+  - component: {fileID: 63779960}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -239,7 +240,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63779957}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -20}
+  m_LocalPosition: {x: -10, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 694987475}
@@ -247,6 +248,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &63779960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 63779957}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25663b1cd9340be4395caf80002e6232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topPart: {fileID: 2063815487}
+  target: {fileID: 1862226137}
 --- !u!1001 &85297805
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2702,6 +2717,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcb2b291d56e0c84788246b243c18837, type: 3}
+--- !u!4 &1862226137 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6752995757313135660, guid: 62736acb15850384781aa540031b95ce,
+    type: 3}
+  m_PrefabInstance: {fileID: 1499088869}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1877644635
 PrefabInstance:
   m_ObjectHideFlags: 0
