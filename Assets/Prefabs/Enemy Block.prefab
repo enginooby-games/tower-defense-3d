@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 1639282353180560162}
   - component: {fileID: 6241529265037383988}
   m_Layer: 0
-  m_Name: -1,1
+  m_Name: Enemy Block
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -141,6 +141,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coordLabel: {fileID: 6241529265560418206}
+--- !u!64 &1839704158122748006
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4625181013816614064}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 85dba4c9c863943468b9c368060ca6e7, type: 3}
 --- !u!1 &6241529265560418200
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +322,12 @@ PrefabInstance:
       objectReference: {fileID: 4300000, guid: 85dba4c9c863943468b9c368060ca6e7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f27a4597efbf3694b95687e7aeef7fcc, type: 3}
+--- !u!1 &4625181013816614064 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1457945536329988, guid: f27a4597efbf3694b95687e7aeef7fcc,
+    type: 3}
+  m_PrefabInstance: {fileID: 4623750264063583668}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4622138020138831946 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4501762900964862, guid: f27a4597efbf3694b95687e7aeef7fcc,
