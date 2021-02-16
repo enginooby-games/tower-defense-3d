@@ -19,11 +19,11 @@ public class Gun : MonoBehaviour
         if (Time.time >= timeToFire)
         {
             timeToFire = Time.time + 1f / fireRate;
-            SpawnVFX();
+            Shoot();
         }
     }
 
-    public void SpawnVFX()
+    public void Shoot()
     {
         GameObject bullet;
 
@@ -36,11 +36,5 @@ public class Gun : MonoBehaviour
             bullet = Instantiate(bulletVfx);
 
         bullet.transform.parent = gameObject.transform;
-        // var ps = bullet.GetComponent<ParticleSystem>();
-
-        // if (bullet.transform.childCount > 0)
-        // {
-        //     ps = bullet.transform.GetChild(0).GetComponent<ParticleSystem>();
-        // }
     }
 }

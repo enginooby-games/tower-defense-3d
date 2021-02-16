@@ -2576,12 +2576,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bcb2b291d56e0c84788246b243c18837, type: 3}
---- !u!4 &1862226137 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6752995757313135660, guid: 62736acb15850384781aa540031b95ce,
-    type: 3}
-  m_PrefabInstance: {fileID: 1499088869}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1877644635
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3390,11 +3384,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tower
       objectReference: {fileID: 0}
-    - target: {fileID: 5288759012920001498, guid: c53b43b99e50eb6438850e70820e740d,
-        type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 1862226137}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c53b43b99e50eb6438850e70820e740d, type: 3}
 --- !u!1001 &5882174287526004378
