@@ -24,14 +24,23 @@ public class Tower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (currentTarget)
+        if (targets.Count == 0)
         {
+            if (gun.enabled) gun.enabled = false;
+        }
+        else
+        {
+            // current target is destroyed or out of range
+            if (!currentTarget)
+            {
+                // remove from the list
+                targets.Remove(currentTarget);
+                // change current target
+                if (targets.Count > 0) currentTarget = targets[0];
+            }
+
             rotatePart.LookAt(currentTarget);
             if (!gun.enabled) gun.enabled = true;
-        }
-        else if (!currentTarget && gun.enabled)
-        {
-            gun.enabled = false;
         }
     }
 
@@ -45,11 +54,6 @@ public class Tower : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Enemy Body"))
         {
-            if (targets.Count == 0)
-            {
-                currentTarget = other.transform;
-            }
-
             targets.Add(other.transform);
         }
     }
@@ -59,15 +63,7 @@ public class Tower : MonoBehaviour
         if (other.gameObject.CompareTag("Enemy Body"))
         {
             targets.Remove(other.transform);
-
-            if (targets.Count == 0)
-            {
-                currentTarget = null;
-            }
-            else
-            {
-                currentTarget = targets[0];
-            }
+            if (currentTarget == other.transform) currentTarget = null;
         }
     }
 }

@@ -26,10 +26,12 @@ public class PathFinder : MonoBehaviour
 
     public List<Waypoint> GetPath()
     {
-        LoadBlocks();
-        startWaypoint.SetColor(Color.black);
-        endWaypoint.SetColor(Color.magenta);
-        BFS();
+        if (path.Count == 0)
+        {
+            LoadBlocks();
+            BFS();
+            CreatePath();
+        }
         return path;
     }
 
@@ -50,8 +52,6 @@ public class PathFinder : MonoBehaviour
                 ExploreNeighbours(searchCenter);
             }
         }
-
-        CreatePath();
     }
 
     private void CreatePath()
