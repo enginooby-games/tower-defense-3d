@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class TowerPoint : MonoBehaviour
 {
-    [SerializeField] GameObject towerPrefab;
 
     bool isOccupied = false;
     // Start is called before the first frame update
@@ -17,7 +16,7 @@ public class TowerPoint : MonoBehaviour
     {
         if (!isOccupied)
         {
-            GameObject tower = Instantiate(towerPrefab, transform.position, Quaternion.identity);
+            TowerFactory.Instance.Build(transform.position);
             isOccupied = true;
         }
     }
