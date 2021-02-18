@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 5288759012920001492}
   - component: {fileID: 5288759012920001498}
   - component: {fileID: 1734701404}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotatePart: {fileID: 5290568529609052404}
-  attackRange: 14
+  attackRange: 20
 --- !u!114 &1734701404
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,7 +217,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4676767254080446, guid: 4e889d43572027a409a3dab490438a22, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.53
       objectReference: {fileID: 0}
     - target: {fileID: 4676767254080446, guid: 4e889d43572027a409a3dab490438a22, type: 3}
       propertyPath: m_LocalPosition.z
@@ -292,7 +292,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4101459293844584, guid: 8238921bafd389b44921fe80cc7f1f9d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5
+      value: 4.47
       objectReference: {fileID: 0}
     - target: {fileID: 4101459293844584, guid: 8238921bafd389b44921fe80cc7f1f9d, type: 3}
       propertyPath: m_LocalPosition.z

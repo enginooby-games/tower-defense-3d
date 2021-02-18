@@ -79,7 +79,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1977555979}
-  m_Text: 1,2
+  m_Text: 3,0
   m_OffsetZ: 0
   m_CharacterSize: 0.2
   m_LineSpacing: 1
@@ -197,7 +197,7 @@ MeshCollider:
   m_GameObject: {fileID: 4621180649405361799}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 0
   m_CookingOptions: 30
@@ -213,6 +213,7 @@ GameObject:
   - component: {fileID: 4621180650682392753}
   - component: {fileID: 351531687}
   - component: {fileID: 3923999804872624495}
+  - component: {fileID: 314267519}
   m_Layer: 0
   m_Name: Friendly Block
   m_TagString: Untagged
@@ -263,6 +264,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isExplored: 0
   exploreFrom: {fileID: 0}
+--- !u!65 &314267519
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4621180650682392752}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9, y: 9, z: 9}
+  m_Center: {x: 0, y: -4, z: 0}
 --- !u!1001 &1636075029488799271
 PrefabInstance:
   m_ObjectHideFlags: 0
