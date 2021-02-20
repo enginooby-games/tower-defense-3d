@@ -4,7 +4,7 @@ using UnityEngine;
 
 // rigidbody component will receive collision event from childrent containing colliders
 
-[RequireComponent(typeof(Rigidbody))]
+// [RequireComponent(typeof(Rigidbody))]
 public class EnemyState : MonoBehaviour
 {
     [SerializeField] int health = 3;

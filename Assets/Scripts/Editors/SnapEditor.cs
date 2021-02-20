@@ -17,7 +17,11 @@ public class SnapEditor : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SnapToGrid();
+        if (!Application.isPlaying)
+        {
+            SnapToGrid();
+        }
+
         if (coordLabel)
         {
             UpdateLabel();

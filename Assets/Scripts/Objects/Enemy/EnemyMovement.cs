@@ -4,26 +4,36 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] float speed = 2f;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] float speed = 0.1f;
+    [SerializeField] float waypointDwellTime = 1f;
+
+    private void Start()
     {
-        PathFinder pathFinder = FindObjectOfType<PathFinder>();
-        StartCoroutine(FollowPath(pathFinder.GetPath()));
+        PathFinder pathfinder = FindObjectOfType<PathFinder>();
+        var path = pathfinder.GetPath();
+
+        StartCoroutine(FollowPath(path));
     }
 
-    IEnumerator FollowPath(List<Waypoint> path)
+    private IEnumerator FollowPath(List<Waypoint> path)
     {
         foreach (Waypoint waypoint in path)
         {
-            transform.position = waypoint.transform.position;
-            yield return new WaitForSeconds(1 / speed);
+            // wait until enemy moves to next waypoint
+            yield return StartCoroutine(MoveTowardsWaypoint(waypoint));
+            // dwell on a waypoint for a little while
+            yield return new WaitForSeconds(waypointDwellTime);
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator MoveTowardsWaypoint(Waypoint waypoint)
     {
+        while (transform.position != waypoint.transform.position)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, waypoint.transform.position, speed * Time.timeScale);
 
+            // wait until next frame
+            yield return null;
+        }
     }
 }

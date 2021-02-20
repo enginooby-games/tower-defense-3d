@@ -23,6 +23,8 @@ public class Bullet : MonoBehaviour
         {
             var muzzleVFX = Instantiate(muzzlePrefab, transform.position, Quaternion.identity);
             muzzleVFX.transform.forward = gameObject.transform.forward;
+            muzzleVFX.transform.parent = transform;
+
             var ps = muzzleVFX.GetComponent<ParticleSystem>();
             if (ps != null)
                 Destroy(muzzleVFX, ps.main.duration);
@@ -45,9 +47,9 @@ public class Bullet : MonoBehaviour
             rb.position += (transform.forward) * (speed * Time.deltaTime);
     }
 
-    void OnCollisionEnter(Collision co)
+    void OnCollisionEnter(Collision collision)
     {
-        if (co.gameObject.tag != "Bullet" && !collided)
+        if (collision.gameObject.tag != "Bullet" && !collided)
         {
             collided = true;
 
@@ -60,7 +62,8 @@ public class Bullet : MonoBehaviour
             {
                 for (int i = 0; i < trails.Count; i++)
                 {
-                    trails[i].transform.parent = null;
+                    // trails[i].transform.parent = null;
+                    trails[i].transform.parent = transform;
                     var ps = trails[i].GetComponent<ParticleSystem>();
                     if (ps != null)
                     {
@@ -73,13 +76,14 @@ public class Bullet : MonoBehaviour
             speed = 0;
             GetComponent<Rigidbody>().isKinematic = true;
 
-            ContactPoint contact = co.contacts[0];
+            ContactPoint contact = collision.contacts[0];
             Quaternion rot = Quaternion.FromToRotation(Vector3.up, contact.normal);
             Vector3 pos = contact.point;
 
             if (hitPrefab != null)
             {
                 var hitVFX = Instantiate(hitPrefab, pos, rot) as GameObject;
+                hitVFX.transform.parent = collision.transform;
 
                 var ps = hitVFX.GetComponent<ParticleSystem>();
                 if (ps == null)
