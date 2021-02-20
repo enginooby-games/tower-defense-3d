@@ -5,7 +5,7 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     [Tooltip("Body parts which keep looking at current target")]
-    [SerializeField] Transform rotatePart;
+    [SerializeField] Transform pivot;
     [SerializeField] float attackRange = 15f;
 
     private List<Transform> targets = new List<Transform>();
@@ -39,7 +39,7 @@ public class Tower : MonoBehaviour
                 if (targets.Count > 0) currentTarget = targets[0];
             }
 
-            rotatePart.LookAt(currentTarget);
+            pivot.LookAt(currentTarget);
             if (!gun.enabled) gun.enabled = true;
         }
     }
