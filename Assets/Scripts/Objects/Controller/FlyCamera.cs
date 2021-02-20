@@ -9,13 +9,18 @@ public class FlyCamera : MonoBehaviour
     wasd : basic movement
     shift : Makes camera accelerate
     space : Moves camera on X and Z axis only.  So camera doesn't gain any height*/
-
     public float mainSpeed = 50.0f; //regular speed
     public float shiftAdd = 150.0f; //multiplied by how long shift is held.  Basically running
-    public float maxShift = 1000.0f; //Maximum speed when holdin gshift
+    public float maxShift = 1000.0f; //Maximum speed when holding shift
     public float sensitivity = 0.25f; //How sensitive it with mouse
     public bool rotateOnlyIfMousedown = true;
     public bool movementStaysFlat = true;
+
+    [Header("BOUNDARIES")]
+    public bool boundaryEnabled = true;
+    public Vector2 xRange = new Vector2(-60, 60);
+    public Vector2 yRange = new Vector2(8, 60);
+    public Vector2 zRange = new Vector2(-50, 55);
 
     private Vector3 lastMouse = new Vector3(255, 255, 255); //kind of in the middle of the screen, rather than at the top (play)
     private float totalRun = 1.0f;
@@ -40,8 +45,7 @@ public class FlyCamera : MonoBehaviour
             lastMouse = Input.mousePosition; // $CTK reset when we begin
         }
 
-        if (!rotateOnlyIfMousedown ||
-            (rotateOnlyIfMousedown && Input.GetMouseButton(1)))
+        if (!rotateOnlyIfMousedown || (rotateOnlyIfMousedown && Input.GetMouseButton(1)))
         {
             lastMouse = Input.mousePosition - lastMouse;
             lastMouse = new Vector3(-lastMouse.y * sensitivity, lastMouse.x * sensitivity, 0);
@@ -69,10 +73,11 @@ public class FlyCamera : MonoBehaviour
         }
 
         p = p * Time.deltaTime;
-        Vector3 newPosition = transform.position;
-        if (Input.GetKey(KeyCode.Space)
-            || (movementStaysFlat && !(rotateOnlyIfMousedown && Input.GetMouseButton(1))))
-        { //If player wants to move on X and Z axis only
+
+        //If player wants to move on X and Z axis only
+        if (Input.GetKey(KeyCode.Space) || (movementStaysFlat && !(rotateOnlyIfMousedown && Input.GetMouseButton(1))))
+        {
+            Vector3 newPosition = transform.position;
             transform.Translate(p);
             newPosition.x = transform.position.x;
             newPosition.z = transform.position.z;
@@ -83,6 +88,17 @@ public class FlyCamera : MonoBehaviour
             transform.Translate(p);
         }
 
+        if (boundaryEnabled) ProcessBoundaries();
+    }
+
+    private void ProcessBoundaries()
+    {
+        Vector3 newPosition;
+        newPosition.x = Mathf.Clamp(transform.position.x, xRange.x, xRange.y);
+        newPosition.y = Mathf.Clamp(transform.position.y, yRange.x, yRange.y);
+        newPosition.z = Mathf.Clamp(transform.position.z, zRange.x, zRange.y);
+
+        transform.position = newPosition;
     }
 
     private Vector3 GetBaseInput()
