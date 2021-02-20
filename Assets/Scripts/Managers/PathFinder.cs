@@ -97,7 +97,6 @@ public class PathFinder : MonoBehaviour
             if (grid.ContainsKey(neighbourCoord))
             {
                 Waypoint neighbour = grid[neighbourCoord];
-                neighbour.SetColor(Color.gray);
                 if (!neighbour.isExplored && !queue.Contains(neighbour))
                 {
                     queue.Enqueue(neighbour);

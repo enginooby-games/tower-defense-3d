@@ -27,9 +27,4 @@ public class Waypoint : MonoBehaviour
     {
         return GetCoord() / GameConst.GRID_SIZE;
     }
-
-    public void SetColor(Color color)
-    {
-        transform.Find("Top").GetComponent<MeshRenderer>().material.color = color;
-    }
 }
