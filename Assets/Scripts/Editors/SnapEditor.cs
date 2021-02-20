@@ -37,7 +37,7 @@ public class SnapEditor : MonoBehaviour
 
     private void UpdateLabel()
     {
-        coordLabel.text = snapPos.x / GameConst.GRID_SIZE + "," + snapPos.z / GameConst.GRID_SIZE;
+        coordLabel.text = Mathf.RoundToInt(transform.position.x / GameConst.GRID_SIZE) + "," + Mathf.RoundToInt(transform.position.z / GameConst.GRID_SIZE);
         name = coordLabel.text;
     }
 }
