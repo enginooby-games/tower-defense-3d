@@ -41,6 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3039675909008930039}
   - component: {fileID: 7642224233152308961}
+  - component: {fileID: 4697728224563531991}
   - component: {fileID: 7698560273743119701}
   - component: {fileID: 2211426473701518330}
   m_Layer: 0
@@ -81,6 +82,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coordLabel: {fileID: 7642224233703016523}
+--- !u!114 &4697728224563531991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3039675909008930038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f8c115b1dad51b4eb9431056a515a40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  models:
+  - {fileID: 7948303867056761063}
+  - {fileID: 2425507547432270479}
+  - {fileID: 7246578015874982561}
+  activeModelIndex: 0
 --- !u!114 &7698560273743119701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -121,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &596251325283809271
 Transform:
   m_ObjectHideFlags: 0
@@ -246,7 +264,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2219037827393176376
 Transform:
   m_ObjectHideFlags: 0
