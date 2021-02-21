@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class BaseMovement : MonoBehaviour
 {
@@ -21,7 +22,7 @@ public class BaseMovement : MonoBehaviour
 
     }
 
-    protected IEnumerator FollowPath(List<Transform> path)
+    protected IEnumerator FollowPath(List<Transform> path, Action callback = null)
     {
         foreach (Transform point in path)
         {
@@ -30,6 +31,8 @@ public class BaseMovement : MonoBehaviour
             // delay time after reach each point
             yield return new WaitForSeconds(delay);
         }
+
+        if (callback != null) callback();
     }
 
     protected IEnumerator MoveTowards(Transform point)

@@ -77,8 +77,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6f5f703601cee64ebfcd626f9689a44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  waypointDwellTime: 0
+  speed: 20
+  delay: 0
+  attackVfx: {fileID: 198537984209914932, guid: 1a8bf7be0d752c545aded0465213977d,
+    type: 3}
 --- !u!114 &1797796898
 MonoBehaviour:
   m_ObjectHideFlags: 0

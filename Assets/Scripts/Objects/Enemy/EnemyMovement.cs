@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : BaseMovement
 {
+    [SerializeField] ParticleSystem attackVfx;
     private void Start()
     {
         PathFinder pathfinder = FindObjectOfType<PathFinder>();
@@ -17,7 +18,14 @@ public class EnemyMovement : BaseMovement
             path.Add(waypoint.transform);
         }
 
-        StartCoroutine(FollowPath(path));
+        StartCoroutine(FollowPath(path, Attack));
+    }
+
+    private void Attack()
+    {
+        ParticleSystem vfx = Instantiate(attackVfx, transform.position, Quaternion.identity);
+        Destroy(vfx.gameObject, 2f);
+        Destroy(gameObject);
     }
 
 }
