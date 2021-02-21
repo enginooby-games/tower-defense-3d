@@ -4,11 +4,15 @@ using UnityEngine;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine.SceneManagement;
+using Sirenix.OdinInspector;
 
 [ExecuteInEditMode]
 public class ModelSwitchManager : MonoBehaviour
 {
-    [Range(0, 2)] [SerializeField] int activeModelIndex = 0;
+    [Range(0, 2)] [SerializeField] int globalActiveModelIndex = 0;
+
+    [Space]
+    [InlineEditor(InlineEditorModes.GUIOnly)]
     [SerializeField] List<ModelSwitchEditor> prefabs;
 
     // Start is called before the first frame update
@@ -27,7 +31,7 @@ public class ModelSwitchManager : MonoBehaviour
     {
         foreach (ModelSwitchEditor prefab in prefabs)
         {
-            prefab.activeModelIndex = activeModelIndex;
+            prefab.SetActiveModelIndex(globalActiveModelIndex);
         }
 
         // TODO: auto save scene after make change on this manager
