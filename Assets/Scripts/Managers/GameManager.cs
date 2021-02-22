@@ -7,9 +7,11 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
 {
     [Header("STATS")]
     [SerializeField] int maxHeath = 20;
+    public int coins = 100;
 
     [Header("UI")]
     [SerializeField] TextMeshProUGUI healthLabel;
+    [SerializeField] TextMeshProUGUI coinLabel;
 
     private int currentHeath;
     // Start is called before the first frame update
@@ -28,6 +30,7 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     {
         currentHeath = maxHeath;
         UpdateHealthLabel();
+        UpdateCoinLabel();
     }
 
     public void UpdateHealth(int amount)
@@ -39,5 +42,16 @@ public class GameManager : MonoBehaviourSingleton<GameManager>
     private void UpdateHealthLabel()
     {
         healthLabel.text = "Health: " + currentHeath + "/" + maxHeath;
+    }
+
+    public void UpdateCoin(int amount)
+    {
+        coins += amount;
+        UpdateCoinLabel();
+    }
+
+    private void UpdateCoinLabel()
+    {
+        coinLabel.text = "Coins: " + coins;
     }
 }

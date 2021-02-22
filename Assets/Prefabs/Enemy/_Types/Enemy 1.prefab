@@ -79,6 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 20
   delay: 0
+  damage: 1
   attackVfx: {fileID: 198537984209914932, guid: 1a8bf7be0d752c545aded0465213977d,
     type: 3}
 --- !u!114 &1797796898
@@ -93,8 +94,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3bbb240f19a7d0459d14f3646c7fbc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 5
-  scoreOnDeath: 1
+  health: 3
+  coinsOnDeath: 35
   deathVfx: {fileID: 198537984209914932, guid: 1a51bfda454239a41afb7dee687c6ac0, type: 3}
 --- !u!114 &7709970167372285921
 MonoBehaviour:
@@ -109,6 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coordLabel: {fileID: 0}
+  coordNamed: 1
 --- !u!1001 &2372859523698885683
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class Tower : MonoBehaviour
     [Tooltip("Body parts which keep looking at current target")]
     [SerializeField] Transform pivot;
     [SerializeField] float attackRange = 15f;
+    public int buildCost = 50;
 
     private List<Transform> targets = new List<Transform>();
     private Transform currentTarget;

@@ -20,7 +20,9 @@ public class TowerFactory : MonoBehaviourSingleton<TowerFactory>
 
     public void Build(Vector3 pos)
     {
+        if (GameManager.Instance.coins < towerPrefab.buildCost) return;
         Tower tower = Instantiate(towerPrefab, pos, Quaternion.identity);
         tower.transform.parent = transform;
+        GameManager.Instance.UpdateCoin(-tower.buildCost);
     }
 }

@@ -8,7 +8,7 @@ using UnityEngine;
 public class EnemyState : MonoBehaviour
 {
     [SerializeField] int health = 3;
-    [SerializeField] int scoreOnDeath = 1;
+    [SerializeField] int coinsOnDeath = 35;
     [SerializeField] ParticleSystem deathVfx;
     // Start is called before the first frame update
     void Start()
@@ -29,6 +29,7 @@ public class EnemyState : MonoBehaviour
             ParticleSystem vfx = Instantiate(deathVfx, transform.position, Quaternion.identity);
             Destroy(vfx.gameObject, 3f);
             Destroy(gameObject);
+            GameManager.Instance.UpdateCoin(+coinsOnDeath);
         }
     }
 }
