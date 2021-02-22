@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : BaseMovement
 {
+    [SerializeField] int damage = 1; // state?
     [SerializeField] ParticleSystem attackVfx;
     private void Start()
     {
@@ -26,6 +27,7 @@ public class EnemyMovement : BaseMovement
         ParticleSystem vfx = Instantiate(attackVfx, transform.position, Quaternion.identity);
         Destroy(vfx.gameObject, 2f);
         Destroy(gameObject);
+        GameManager.Instance.UpdateHealth(-damage);
     }
 
 }
