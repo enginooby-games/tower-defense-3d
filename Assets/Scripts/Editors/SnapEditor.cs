@@ -7,6 +7,9 @@ using UnityEngine;
 public class SnapEditor : MonoBehaviour
 {
     [SerializeField] TextMesh coordLabel = null;
+
+    [Tooltip("Update object name match with grid coordinates")]
+    [SerializeField] bool coordNamed = true;
     Vector3 snapPos;
     // Start is called before the first frame update
     void Start()
@@ -38,6 +41,6 @@ public class SnapEditor : MonoBehaviour
     private void UpdateLabel()
     {
         coordLabel.text = Mathf.RoundToInt(transform.position.x / GameConst.GRID_SIZE) + "," + Mathf.RoundToInt(transform.position.z / GameConst.GRID_SIZE);
-        name = coordLabel.text;
+        if (coordNamed) name = coordLabel.text;
     }
 }

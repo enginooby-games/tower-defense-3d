@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coordLabel: {fileID: 4544205904125610579}
+  coordNamed: 0
 --- !u!1 &9165379811949672665
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,7 +214,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 43f1adc46d9e3be47aa0a9a45756e781, type: 2}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

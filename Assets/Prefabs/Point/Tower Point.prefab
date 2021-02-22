@@ -82,6 +82,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   coordLabel: {fileID: 7642224233703016523}
+  coordNamed: 1
 --- !u!114 &4697728224563531991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +99,7 @@ MonoBehaviour:
   - {fileID: 2425507547432270479}
   - {fileID: 7948303867056761063}
   - {fileID: 7246578015874982561}
-  activeModel: {fileID: 7246578015874982561}
+  activeModel: {fileID: 7948303867056761063}
 --- !u!114 &7698560273743119701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,7 +140,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &596251325283809271
 Transform:
   m_ObjectHideFlags: 0
@@ -264,7 +265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2219037827393176376
 Transform:
   m_ObjectHideFlags: 0

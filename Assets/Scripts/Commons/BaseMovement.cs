@@ -10,18 +10,7 @@ public class BaseMovement : MonoBehaviour
     [Tooltip("Delay time after reach each point")]
     [SerializeField] float delay = 0f;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
+    // move (slerp) on a path with multi target points
     protected IEnumerator FollowPath(List<Transform> path, Action callback = null)
     {
         foreach (Transform point in path)
@@ -35,6 +24,8 @@ public class BaseMovement : MonoBehaviour
         if (callback != null) callback();
     }
 
+
+    // move (slerp) to a single target point
     protected IEnumerator MoveTowards(Transform point)
     {
         while (transform.position != point.position)
